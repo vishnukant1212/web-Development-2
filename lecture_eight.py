@@ -1,19 +1,23 @@
-class student:
-    def __init__(self, name, marks):
-        self.name = name
-        self.marks = marks
+class Account:
+    def __init__(self, bal, acc):
+        self.balance = bal
+        self.account_no = acc
+
+    def debit(self, amount):
+        self.balance -= amount
+        print("Rs.", amount, "was debited")
+        print("total blance =", self.get_balance())
+
+    def credit(self, amount):
+        self.balance += amount
+        print("Rs.", amount, "was credited")
+        print("total balance =", self.get_balance())     
+       
+    def get_balance(self):
+        return self.balance   
 
 
-    @staticmethod
-    def hello():
-        print("hello")    
-
-    def get_avg(self):
-        sum = 0
-        for value in self.marks:
-            sum += value
-        print("hi", self.name, "your avg score is:", sum/3)        
-
-s1 = student("vishnu", [99, 98, 78])  
-s1.get_avg() 
-s1.hello()     
+acc1 = Account(10000, 12345)
+acc1.debit(1000)
+acc1.credit(500)
+acc1.credit(25000)
